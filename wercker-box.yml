@@ -1,5 +1,5 @@
 name: java8-oracle
-version: 1.0.1
+version: 1.0.2
 description: Java8 box provisioned with the Oracle distribution via the webupd8team ppa. Comes with Java 8, maven, git, ruby and rhc
 keywords:
   - java
@@ -28,8 +28,7 @@ script: |-
   sudo apt-get install maven
 
   # Install ruby (required for rhc)
-  sudo apt-get install ruby-full
-  sudo apt-get install rubygems
+  sudo apt-get install ruby1.9.1 ruby1.9.1-dev rubygems1.9.1 irb1.9.1 ri1.9.1 rdoc1.9.1 build-essential libopenssl-ruby1.9.1 libssl-dev zlib1g-dev
 
   # Install git
   sudo apt-get install git-core
