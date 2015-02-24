@@ -34,7 +34,7 @@ script: |-
   sudo apt-get install git-core
 
   # Install OpenShift client tools
-  sudo apt-get install rhc
+  sudo gem install rhc --no-rdoc --no-ri
 
   # We should have ant and ivy available
   type mvn || { echo "I expected maven to be available. Aborting."; exit 1; }
