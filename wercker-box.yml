@@ -1,5 +1,5 @@
 name: java8-oracle
-version: 1.0
+version: 1.0.0
 description: Java8 box provisioned with the Oracle distribution via the webupd8team ppa. Comes with Java 8, maven, git, ruby and rhc
 keywords:
   - java
