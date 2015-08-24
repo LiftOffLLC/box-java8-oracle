@@ -1,6 +1,6 @@
-name: java8-oracle
-version: 1.0.2
-description: Java8 box provisioned with the Oracle distribution via the webupd8team ppa. Comes with Java 8, maven, git, ruby and rhc
+name: java8-oracle-maven3
+version: 1.0.0
+description: Java8 box provisioned with the Oracle distribution via the webupd8team ppa. Comes with Java 8, maven 3.3.1, git, ruby and heroku toolbelt
 keywords:
   - java
   - maven
@@ -25,19 +25,24 @@ script: |-
   sudo apt-get install oracle-java8-set-default -y
 
   # Install maven
-  sudo apt-get install maven
+  sudo apt-add-repository ppa:timothy-downey/maven3 -y
+  sudo apt-get update
+  sudo apt-get install maven3 -y
 
   # Install ruby (required for rhc)
   sudo apt-get install ruby1.9.1 ruby1.9.1-dev rubygems1.9.1 irb1.9.1 ri1.9.1 rdoc1.9.1 build-essential libopenssl-ruby1.9.1 libssl-dev zlib1g-dev
 
+  # Install iron_worker_ng gem
+  sudo gem install iron_worker_ng
+
   # Install git
   sudo apt-get install git-core
 
-  # Install OpenShift client tools
-  sudo gem install rhc --no-rdoc --no-ri
+  # Install heroku toolbelt
+  wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sudo sh
 
   # checks
   type mvn || { echo "I expected maven to be available. Aborting."; exit 1; }
   type git || { echo "I expected git to be available. Aborting."; exit 1; }
   type ruby || { echo "I expected ruby to be available. Aborting."; exit 1; }
-  type rhc || { echo "I expected rhc to be available. Aborting."; exit 1; }
+  type heroku || { echo "I expected heroku to be available. Aborting."; exit 1; }
