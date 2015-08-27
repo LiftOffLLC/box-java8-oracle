@@ -38,6 +38,12 @@ script: |-
   # Install git
   sudo apt-get install git-core
 
+  # Install redis
+  sudo apt-get install redis-server -y
+
+  # stop redis after install
+  sudo service redis-server stop
+
   # Install heroku toolbelt
   wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sudo sh
 
