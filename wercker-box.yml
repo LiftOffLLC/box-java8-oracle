@@ -49,6 +49,9 @@ script: |-
 
   echo "" >> /etc/environment
   echo "JAVA_HOME=/usr/lib/jvm/java-8-oracle" >> /etc/environment
+  echo "" >> /etc/mavenrc
+  echo "JAVA_HOME=/usr/lib/jvm/java-8-oracle" >> /etc/mavenrc
+
   # checks
   type mvn || { echo "I expected maven to be available. Aborting."; exit 1; }
   type git || { echo "I expected git to be available. Aborting."; exit 1; }
