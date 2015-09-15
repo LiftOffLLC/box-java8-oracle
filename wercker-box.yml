@@ -47,10 +47,10 @@ script: |-
   # Install heroku toolbelt
   wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sudo sh
 
-  echo "" >> /etc/environment
-  echo "JAVA_HOME=/usr/lib/jvm/java-8-oracle" >> /etc/environment
-  sudo echo "" >> /etc/mavenrc
-  sudo echo "JAVA_HOME=/usr/lib/jvm/java-8-oracle" >> /etc/mavenrc
+  echo "" | sudo tee -a /etc/environment
+  echo "JAVA_HOME=/usr/lib/jvm/java-8-oracle" | sudo tee -a /etc/environment
+  echo "" | sudo tee -a /etc/mavenrc
+  echo "JAVA_HOME=/usr/lib/jvm/java-8-oracle" | sudo tee -a /etc/mavenrc
 
   # checks
   type mvn || { echo "I expected maven to be available. Aborting."; exit 1; }
